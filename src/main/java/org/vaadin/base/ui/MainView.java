@@ -1,6 +1,7 @@
 package org.vaadin.base.ui;
 
 import com.vaadin.flow.component.Unit;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.server.streams.DownloadHandler;
@@ -58,11 +59,8 @@ public final class MainView extends Main {
         File file = new File(".\\src\\main\\resources\\META-INF\\resources\\images\\test.png");
         FileDownloadHandler fileDownloadHandler = DownloadHandler.forFile(file);
         image.setSrc(fileDownloadHandler);;
-        try {
-            Notification.show("Showing " + file.getCanonicalPath());
-        } catch (IOException io) {
-            Notification.show("IOException: " + io.getMessage());
-        }
+        Dialog d = new Dialog();
+        d.open();
 
     }
 }
